@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using OrangeBricks.DataAccess.Models;
 using OrangeBricks.Web.Infrastructure;
 using OrangeBricks.Web.Models;
 

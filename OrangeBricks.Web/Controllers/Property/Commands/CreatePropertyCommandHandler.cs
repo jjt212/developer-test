@@ -1,3 +1,4 @@
+using OrangeBricks.DataAccess;
 using OrangeBricks.Web.Models;
 
 namespace OrangeBricks.Web.Controllers.Property.Commands
@@ -13,7 +14,7 @@ namespace OrangeBricks.Web.Controllers.Property.Commands
 
         public void Handle(CreatePropertyCommand command)
         {
-            var property = new Models.Property
+            var property = new OrangeBricks.DataAccess.Models.Property
             {
                PropertyType = command.PropertyType,
                StreetName = command.StreetName,

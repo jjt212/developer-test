@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Web", "OrangeBricks.Web\OrangeBricks.Web.csproj", "{09E3AF0B-9370-4C77-97B4-427F77EE842A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Web.Tests", "OrangeBricks.Web.Tests\OrangeBricks.Web.Tests.csproj", "{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Library", "OrangeBricks.Library\OrangeBricks.Library.csproj", "{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.IDataAccess", "OrangeBricks.IDataAccess\OrangeBricks.IDataAccess.csproj", "{132CAF8F-555D-49AC-9D2C-266108D94553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.DataAccess", "OrangeBricks.DataAccess\OrangeBricks.DataAccess.csproj", "{CD7EEA42-9F94-40D4-AE54-AD4E6CC6F1C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Framework", "OrangeBricks.Framework\OrangeBricks.Framework.csproj", "{A9987793-5CFA-42E3-A678-B0ADB500157D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{132CAF8F-555D-49AC-9D2C-266108D94553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{132CAF8F-555D-49AC-9D2C-266108D94553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{132CAF8F-555D-49AC-9D2C-266108D94553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{132CAF8F-555D-49AC-9D2C-266108D94553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD7EEA42-9F94-40D4-AE54-AD4E6CC6F1C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7EEA42-9F94-40D4-AE54-AD4E6CC6F1C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7EEA42-9F94-40D4-AE54-AD4E6CC6F1C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7EEA42-9F94-40D4-AE54-AD4E6CC6F1C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9987793-5CFA-42E3-A678-B0ADB500157D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9987793-5CFA-42E3-A678-B0ADB500157D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9987793-5CFA-42E3-A678-B0ADB500157D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9987793-5CFA-42E3-A678-B0ADB500157D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

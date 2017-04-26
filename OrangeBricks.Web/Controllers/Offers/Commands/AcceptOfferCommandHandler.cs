@@ -1,4 +1,7 @@
 using System;
+using OrangeBricks.DataAccess;
+using OrangeBricks.DataAccess.Models;
+using OrangeBricks.Framework.Enumerations;
 using OrangeBricks.Web.Models;
 
 namespace OrangeBricks.Web.Controllers.Offers.Commands

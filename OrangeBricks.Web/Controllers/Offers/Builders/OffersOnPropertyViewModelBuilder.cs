@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using OrangeBricks.DataAccess;
+using OrangeBricks.DataAccess.Models;
+using OrangeBricks.Framework.Enumerations;
 using OrangeBricks.Web.Controllers.Offers.ViewModels;
 using OrangeBricks.Web.Models;
 

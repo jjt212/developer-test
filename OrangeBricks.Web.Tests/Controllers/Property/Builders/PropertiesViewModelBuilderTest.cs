@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using NSubstitute;
 using NUnit.Framework;
+using OrangeBricks.DataAccess;
 using OrangeBricks.Web.Controllers.Property.Builders;
 using OrangeBricks.Web.Models;
 
@@ -37,12 +38,12 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Builders
             // Arrange
             var builder = new PropertiesViewModelBuilder(_context);
 
-            var properties = new List<Models.Property>{
-                new Models.Property{ StreetName = "Smith Street", Description = "", IsListedForSale = true },
-                new Models.Property{ StreetName = "Jones Street", Description = "", IsListedForSale = true}
+            var properties = new List<OrangeBricks.DataAccess.Models.Property>{
+                new OrangeBricks.DataAccess.Models.Property{ StreetName = "Smith Street", Description = "", IsListedForSale = true },
+                new OrangeBricks.DataAccess.Models.Property{ StreetName = "Jones Street", Description = "", IsListedForSale = true}
             };
 
-            var mockSet = Substitute.For<IDbSet<Models.Property>>()
+            var mockSet = Substitute.For<IDbSet<OrangeBricks.DataAccess.Models.Property>>()
                 .Initialize(properties.AsQueryable());
 
             _context.Properties.Returns(mockSet);
@@ -65,12 +66,12 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Builders
             // Arrange
             var builder = new PropertiesViewModelBuilder(_context);
 
-            var properties = new List<Models.Property>{
-                new Models.Property{ StreetName = "", Description = "Great location", IsListedForSale = true },
-                new Models.Property{ StreetName = "", Description = "Town house", IsListedForSale = true }
+            var properties = new List<OrangeBricks.DataAccess.Models.Property>{
+                new OrangeBricks.DataAccess.Models.Property{ StreetName = "", Description = "Great location", IsListedForSale = true },
+                new OrangeBricks.DataAccess.Models.Property{ StreetName = "", Description = "Town house", IsListedForSale = true }
             };
 
-            var mockSet = Substitute.For<IDbSet<Models.Property>>()
+            var mockSet = Substitute.For<IDbSet<OrangeBricks.DataAccess.Models.Property>>()
                 .Initialize(properties.AsQueryable());
 
             _context.Properties.Returns(mockSet);

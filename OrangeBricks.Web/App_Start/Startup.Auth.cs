@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using OrangeBricks.Web.Models;
+using OrangeBricks.DataAccess;
+using OrangeBricks.DataAccess.Models;
 
 namespace OrangeBricks.Web
 {

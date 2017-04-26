@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using OrangeBricks.DataAccess;
+using OrangeBricks.DataAccess.Models;
 
 namespace OrangeBricks.Web.Infrastructure
 {
