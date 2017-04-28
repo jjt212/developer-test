@@ -1,0 +1,58 @@
+Existing Codebase
+After reviewing the codebase over the course of applying my changes to complete
+the user stories, I can say that the project is definitely easy to follow.
+Everything I was looking for to get a handle on the project was either right
+where I was looking for it, or easy to find logically.
+
+Entity Framework is a good choice for this demo project in terms of
+accessibility, but my first critique would be to recommend a different
+technology for a more advanced web application. Personally I would recommend
+raw ADO calls wrapped in a data access layer to get the advantages of speed
+and flexibility.
+
+I felt it would be out of scope of this test to implement a client-side
+experience, ala jQuery & Knockout.js, etc. I also would have moved the actions
+in the UI (creating aproperty, listing a property, making an offer, etc) into a
+RESTful Web API so that they could be executed asynchronously from the client
+side instead of a hard POST via the browser.
+
+With my introduction of CSLA at the business layer, validation rules can be
+attached directly to the behavioral entities in your business domain, and in
+most cases be echoed on the client side as well via the jquery-validation
+library. Exception handling is notably missing, but I would approach that with
+a product like PostSharp to help keep code bloat down.
+
+
+My Changes
+I hope I didn't go too overboard with my changes to the solution, but I wanted
+to hit the point mentioned in the README, "a solution that shows how you build
+maintainable, scalable, and secure software". The first thing I did was
+restructure the project architecture to move the business logic out of the UI
+layer, and then move the data access logic out of the business layer. The way
+the solution is architected now, the business layer is completely decoupled
+from the underlying storage mechanism, and the UI layer doesn't make any
+business decisions. There is definitely more code now than there was for the
+original functionality, but the flexibility gained outweighs this concern.
+This is also mitigated by both code templates for generation from a DB, as well
+as custom code snippets.
+
+The Builder classes and Commands from the original project definitely worked,
+but now the logic contained within them can be reused by, say, a mobile app, or
+in the case later if scaling warants splitting the MVC side of things and the
+Web API into different solutions for more granular scaling on the hosting side.
+
+There is also the addition of the Framework project to address core, cross-
+cutting concerns. This includes custom exceptions, enumerations, logging, 
+extension methods, and anything else that might be needed in two or more
+layers.
+
+On the testing side, my changes allow for finer testing of both the business
+logic and the data access logic separately. For the purposes of this demo, I
+only converted the existing tests to show my approach, but did not add
+additional tests.
+
+Again, my changes might look a little ridiculous with the limited
+functionality of the demo app as it is, but my approach gives plenty of room
+to grow. I am available to discuss anything if needed.
+
+Thank you, this was fun!
