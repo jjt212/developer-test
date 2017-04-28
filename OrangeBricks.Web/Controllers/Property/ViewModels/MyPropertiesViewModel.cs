@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+using OrangeBricks.Library.Models.Properties;
 
 namespace OrangeBricks.Web.Controllers.Property.ViewModels
 {
-    public class MyPropertiesViewModel
-    {
-        public List<PropertyViewModel> Properties { get; set; }
-    }
+	public class MyPropertiesViewModel
+	{
+		public PropertyReadOnlyList Properties { get; set; }
+	}
 }

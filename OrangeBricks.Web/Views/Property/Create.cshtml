@@ -11,27 +11,27 @@
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(m => m.PropertyType, "I want to sell my...", new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Property.PropertyType, "I want to sell my...", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.PropertyType, Model.PossiblePropertyTypes, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.Property.PropertyType, Model.PossiblePropertyTypes, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.StreetName, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Property.StreetName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.StreetName, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Property.StreetName, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.NumberOfBedrooms, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Property.NumberOfBedrooms, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.NumberOfBedrooms, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Property.NumberOfBedrooms, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Property.Description, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+            @Html.TextAreaFor(m => m.Property.Description, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">

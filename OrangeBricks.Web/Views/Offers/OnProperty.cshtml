@@ -9,11 +9,11 @@
 
 <p>Here you can see the offers that have been made on your property.</p>
 
-<p><strong>Property type:</strong> @Model.PropertyType</p>
-<p><strong>Number of bedrooms:</strong> @Model.NumberOfBedrooms</p>
-<p><strong>Street name:</strong> @Model.StreetName</p>
+<p><strong>Property type:</strong> @Model.Property.PropertyType</p>
+<p><strong>Number of bedrooms:</strong> @Model.Property.NumberOfBedrooms</p>
+<p><strong>Street name:</strong> @Model.Property.StreetName</p>
 
-@if (Model.HasOffers)
+@if (Model.Property.HasOffers)
 {
     <p>There are @Model.Offers.Count() offers on this property...</p>
     
@@ -30,7 +30,7 @@
         {
             using (Html.BeginForm("Accept", "Offers"))
             {
-                @Html.Hidden("PropertyId", Model.PropertyId)
+                @Html.Hidden("PropertyId", Model.Property.PropertyId)
                 @Html.Hidden("OfferId", offer.Id)
                 <p>
                     <input type="submit" class="btn btn-default" value="Accept Offer" />
@@ -38,7 +38,7 @@
             }
             using (Html.BeginForm("Reject", "Offers"))
             {
-                @Html.Hidden("PropertyId", Model.PropertyId)
+                @Html.Hidden("PropertyId", Model.Property.PropertyId)
                 @Html.Hidden("OfferId", offer.Id)
                 <p>
                     <input type="submit" class="btn btn-default" value="Reject Offer" />

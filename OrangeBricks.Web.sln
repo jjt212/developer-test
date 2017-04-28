@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Web", "OrangeBricks.Web\OrangeBricks.Web.csproj", "{09E3AF0B-9370-4C77-97B4-427F77EE842A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Web.Tests", "OrangeBricks.Web.Tests\OrangeBricks.Web.Tests.csproj", "{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Library", "OrangeBricks.Library\OrangeBricks.Library.csproj", "{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.IDataAccess", "OrangeBricks.IDataAccess\OrangeBricks.IDataAccess.csproj", "{132CAF8F-555D-49AC-9D2C-266108D94553}"
@@ -14,6 +12,20 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.DataAccess", "OrangeBricks.DataAccess\OrangeBricks.DataAccess.csproj", "{CD7EEA42-9F94-40D4-AE54-AD4E6CC6F1C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Framework", "OrangeBricks.Framework\OrangeBricks.Framework.csproj", "{A9987793-5CFA-42E3-A678-B0ADB500157D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Layer", "Business Layer", "{F257A5FE-6CC5-4791-B2FE-4DF472F59571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{5EE41FB5-5A0A-40E7-8F26-62C9A1C03304}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{227E4F60-9D31-4FE2-8AD3-F2064D0E6151}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Interface", "User Interface", "{258A8B2E-EEE9-4652-81EA-53D7B4B13F93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{CCCCB1D4-CFC0-49C2-8EE0-53428F249E9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.Library.Tests", "OrangeBricks.Library.Tests\OrangeBricks.Library.Tests.csproj", "{B7631CE0-5D89-48B8-B6D2-0234EF653F94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeBricks.DataAccess.Tests", "OrangeBricks.DataAccess.Tests\OrangeBricks.DataAccess.Tests.csproj", "{7CC8AB1A-25E8-41B5-8ADD-ED664CAE8A85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +37,6 @@ Global
 		{09E3AF0B-9370-4C77-97B4-427F77EE842A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09E3AF0B-9370-4C77-97B4-427F77EE842A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09E3AF0B-9370-4C77-97B4-427F77EE842A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA9A9899-7AE8-4E5D-84C3-76BD96ACD229}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C00F5B2-172F-4E96-8E90-C610AF80BC4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,8 +53,25 @@ Global
 		{A9987793-5CFA-42E3-A678-B0ADB500157D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9987793-5CFA-42E3-A678-B0ADB500157D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9987793-5CFA-42E3-A678-B0ADB500157D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7631CE0-5D89-48B8-B6D2-0234EF653F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7631CE0-5D89-48B8-B6D2-0234EF653F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7631CE0-5D89-48B8-B6D2-0234EF653F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7631CE0-5D89-48B8-B6D2-0234EF653F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CC8AB1A-25E8-41B5-8ADD-ED664CAE8A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC8AB1A-25E8-41B5-8ADD-ED664CAE8A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC8AB1A-25E8-41B5-8ADD-ED664CAE8A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC8AB1A-25E8-41B5-8ADD-ED664CAE8A85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{09E3AF0B-9370-4C77-97B4-427F77EE842A} = {258A8B2E-EEE9-4652-81EA-53D7B4B13F93}
+		{3C00F5B2-172F-4E96-8E90-C610AF80BC4F} = {F257A5FE-6CC5-4791-B2FE-4DF472F59571}
+		{132CAF8F-555D-49AC-9D2C-266108D94553} = {227E4F60-9D31-4FE2-8AD3-F2064D0E6151}
+		{CD7EEA42-9F94-40D4-AE54-AD4E6CC6F1C4} = {227E4F60-9D31-4FE2-8AD3-F2064D0E6151}
+		{A9987793-5CFA-42E3-A678-B0ADB500157D} = {5EE41FB5-5A0A-40E7-8F26-62C9A1C03304}
+		{B7631CE0-5D89-48B8-B6D2-0234EF653F94} = {CCCCB1D4-CFC0-49C2-8EE0-53428F249E9E}
+		{7CC8AB1A-25E8-41B5-8ADD-ED664CAE8A85} = {CCCCB1D4-CFC0-49C2-8EE0-53428F249E9E}
 	EndGlobalSection
 EndGlobal

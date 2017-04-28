@@ -44,6 +44,10 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Csla, Version=4.6.500.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSLA-Core.4.6.500\lib\net45\Csla.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -205,29 +209,19 @@
     <Compile Include="Attributes\OrangeBricksAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Offers\Builders\OffersOnPropertyViewModelBuilder.cs" />
-    <Compile Include="Controllers\Offers\Commands\AcceptOfferCommand.cs" />
-    <Compile Include="Controllers\Offers\Commands\AcceptOfferCommandHandler.cs" />
-    <Compile Include="Controllers\Offers\Commands\RejectOfferCommand.cs" />
-    <Compile Include="Controllers\Offers\Commands\RejectOfferCommandHandler.cs" />
     <Compile Include="Controllers\Offers\OffersController.cs" />
     <Compile Include="Controllers\Offers\ViewModels\OffersOnPropertyViewModel.cs" />
-    <Compile Include="Controllers\Property\Builders\MakeOfferViewModelBuilder.cs" />
-    <Compile Include="Controllers\Property\Builders\MyPropertiesViewModelBuilder.cs" />
-    <Compile Include="Controllers\Property\Builders\PropertiesQuery.cs" />
-    <Compile Include="Controllers\Property\Builders\PropertiesViewModelBuilder.cs" />
-    <Compile Include="Controllers\Property\Commands\CreatePropertyCommand.cs" />
-    <Compile Include="Controllers\Property\Commands\CreatePropertyCommandHandler.cs" />
-    <Compile Include="Controllers\Property\Commands\ListPropertyCommand.cs" />
-    <Compile Include="Controllers\Property\Commands\ListPropertyCommandHandler.cs" />
-    <Compile Include="Controllers\Property\Commands\MakeOfferCommand.cs" />
-    <Compile Include="Controllers\Property\Commands\MakeOfferCommandHandler.cs" />
     <Compile Include="Controllers\Property\PropertyController.cs" />
     <Compile Include="Controllers\Property\ViewModels\CreatePropertyViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\MakeOfferViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\MyPropertiesViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\PropertiesViewModel.cs" />
-    <Compile Include="Controllers\Property\ViewModels\PropertyViewModel.cs" />
+    <Compile Include="DTOs\AcceptOfferDTO.cs" />
+    <Compile Include="DTOs\CreatePropertyDTO.cs" />
+    <Compile Include="DTOs\ListPropertyDTO.cs" />
+    <Compile Include="DTOs\MakeOfferDTO.cs" />
+    <Compile Include="DTOs\RejectOfferDTO.cs" />
+    <Compile Include="DTOs\SearchPropertiesDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -386,6 +380,9 @@
       <Project>{3c00f5b2-172f-4e96-8e90-c610af80bc4f}</Project>
       <Name>OrangeBricks.Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\CSLA-Core.4.6.500\analyzers\c#\Csla.Analyzers.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

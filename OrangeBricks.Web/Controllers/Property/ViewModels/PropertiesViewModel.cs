@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+using OrangeBricks.Library.Models.Properties;
 
 namespace OrangeBricks.Web.Controllers.Property.ViewModels
 {
-    public class PropertiesViewModel
-    {
-        public List<PropertyViewModel> Properties { get; set; }
-        public string Search { get; set; }
-    }
+	public class PropertiesViewModel
+	{
+		public PropertyReadOnlyList Properties { get; set; }
+		public string Search { get; set; }
+	}
 }

@@ -1,96 +1,112 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using OrangeBricks.DataAccess;
+using OrangeBricks.Library.Models.Offers;
+using OrangeBricks.Library.Models.Properties;
 using OrangeBricks.Web.Attributes;
-using OrangeBricks.Web.Controllers.Property.Builders;
-using OrangeBricks.Web.Controllers.Property.Commands;
 using OrangeBricks.Web.Controllers.Property.ViewModels;
-using OrangeBricks.Web.Models;
+using OrangeBricks.Web.DTOs;
 
 namespace OrangeBricks.Web.Controllers.Property
 {
-    public class PropertyController : Controller
-    {
-        private readonly IOrangeBricksContext _context;
+	public class PropertyController : Controller
+	{
+		private readonly IOrangeBricksContext _context;
 
-        public PropertyController(IOrangeBricksContext context)
-        {
-            _context = context;
-        }
+		public PropertyController(IOrangeBricksContext context)
+		{
+			_context = context;
+		}
 
-        [Authorize]
-        public ActionResult Index(PropertiesQuery query)
-        {
-            var builder = new PropertiesViewModelBuilder(_context);
-            var viewModel = builder.Build(query);
+		[Authorize]
+		public async Task<ActionResult> Index(SearchPropertiesDTO dto)
+		{
+			var properties = await PropertyReadOnlyList.GetAllBySearchQueryAsync(dto.Search);
 
-            return View(viewModel);
-        }
+			var viewModel =
+				new PropertiesViewModel
+				{
+					Properties = properties,
+					Search = dto.Search,
+				};
 
-        [OrangeBricksAuthorize(Roles = "Seller")]
-        public ActionResult Create()
-        {
-            var viewModel = new CreatePropertyViewModel();
+			return View(viewModel);
+		}
 
-            viewModel.PossiblePropertyTypes = new string[] { "House", "Flat", "Bungalow" }
-                .Select(x => new SelectListItem { Value = x, Text = x })
-                .AsEnumerable();
+		[OrangeBricksAuthorize(Roles = "Seller")]
+		public ActionResult Create()
+		{
+			var model =
+				new CreatePropertyViewModel
+				{
+					Property = Library.Models.Properties.Property.Create(User.Identity.GetUserId()),
+					PossiblePropertyTypes = new SelectList(new string[] { "House", "Flat", "Bungalow" }),
+				};
 
-            return View(viewModel);
-        }
+			return View(model);
+		}
 
-        [OrangeBricksAuthorize(Roles = "Seller")]
-        [HttpPost]
-        public ActionResult Create(CreatePropertyCommand command)
-        {
-            var handler = new CreatePropertyCommandHandler(_context);
+		[OrangeBricksAuthorize(Roles = "Seller")]
+		[HttpPost]
+		public async Task<ActionResult> Create(CreatePropertyDTO dto)
+		{
+			var prop = Library.Models.Properties.Property.Create(User.Identity.GetUserId());
+			prop.PropertyType = dto.PropertyType;
+			prop.StreetName = dto.StreetName;
+			prop.Description = dto.Description;
+			prop.NumberOfBedrooms = dto.NumberOfBedrooms;
 
-            command.SellerUserId = User.Identity.GetUserId();
+			prop = await prop.SaveAsync();
 
-            handler.Handle(command);
+			return RedirectToAction(nameof(PropertyController.MyProperties));
+		}
 
-            return RedirectToAction("MyProperties");
-        }
+		[OrangeBricksAuthorize(Roles = "Seller")]
+		public async Task<ActionResult> MyProperties()
+		{
+			var properties = await PropertyReadOnlyList.GetAllBySellerIdAsync(User.Identity.GetUserId());
 
-        [OrangeBricksAuthorize(Roles = "Seller")]
-        public ActionResult MyProperties()
-        {
-            var builder = new MyPropertiesViewModelBuilder(_context);
-            var viewModel = builder.Build(User.Identity.GetUserId());
+			var viewModel =
+				new MyPropertiesViewModel
+				{
+					Properties = properties,
+				};
 
-            return View(viewModel);
-        }
+			return View(viewModel);
+		}
 
-        [HttpPost]
-        [OrangeBricksAuthorize(Roles = "Seller")]
-        public ActionResult ListForSale(ListPropertyCommand command)
-        {
-            var handler = new ListPropertyCommandHandler(_context);
+		[HttpPost]
+		[OrangeBricksAuthorize(Roles = "Seller")]
+		public ActionResult ListForSale(ListPropertyDTO dto)
+		{
+			var cmd = ListPropertyCommand.ExecuteAsync(dto.PropertyId);
 
-            handler.Handle(command);
+			return RedirectToAction(nameof(PropertyController.MyProperties));
+		}
 
-            return RedirectToAction("MyProperties");
-        }
+		[OrangeBricksAuthorize(Roles = "Buyer")]
+		public async Task<ActionResult> MakeOffer(int id)
+		{
+			var property = await PropertyReadOnly.GetByIdAsync(id);
 
-        [OrangeBricksAuthorize(Roles = "Buyer")]
-        public ActionResult MakeOffer(int id)
-        {
-            var builder = new MakeOfferViewModelBuilder(_context);
-            var viewModel = builder.Build(id);
-            return View(viewModel);
-        }
+			var viewModel =
+				new MakeOfferViewModel
+				{
+					Property = property,
+					Offer = 100000, // TODO: property.SuggestedAskingPrice
+				};
 
-        [HttpPost]
-        [OrangeBricksAuthorize(Roles = "Buyer")]
-        public ActionResult MakeOffer(MakeOfferCommand command)
-        {
-            var handler = new MakeOfferCommandHandler(_context);
+			return View(viewModel);
+		}
 
-            handler.Handle(command);
+		[HttpPost]
+		[OrangeBricksAuthorize(Roles = "Buyer")]
+		public async Task<ActionResult> MakeOffer(MakeOfferDTO dto)
+		{
+			var cmd = await MakeOfferCommand.ExecuteAsync(dto.PropertyId, dto.Offer);
 
-            return RedirectToAction("Index");
-        }
-    }
+			return RedirectToAction(nameof(PropertyController.Index));
+		}
+	}
 }

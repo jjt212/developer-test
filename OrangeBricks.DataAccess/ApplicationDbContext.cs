@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using OrangeBricks.DataAccess.Models;
 
@@ -22,6 +23,11 @@ namespace OrangeBricks.DataAccess
 		public new void SaveChanges()
 		{
 			base.SaveChanges();
+		}
+
+		public new async Task SaveChangesAsync()
+		{
+			await base.SaveChangesAsync();
 		}
 	}
 }

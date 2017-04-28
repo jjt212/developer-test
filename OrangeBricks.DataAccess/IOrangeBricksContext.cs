@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Threading.Tasks;
 using OrangeBricks.DataAccess.Models;
 
 namespace OrangeBricks.DataAccess
@@ -9,5 +10,6 @@ namespace OrangeBricks.DataAccess
 		IDbSet<Offer> Offers { get; set; }
 
 		void SaveChanges();
+		Task SaveChangesAsync();
 	}
 }
