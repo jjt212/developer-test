@@ -11,27 +11,26 @@ namespace OrangeBricks.Library.Models.Offers
 {
 	[Serializable]
 	[DataContract]
-	public class OfferReadOnlyList : ReadOnlyListBase<OfferReadOnlyList, OfferReadOnly>
+	public class BuyerOfferReadOnlyList : ReadOnlyListBase<BuyerOfferReadOnlyList, BuyerOfferReadOnly>
 	{
 		#region Factory Methods
 
-		public static async Task<OfferReadOnlyList> GetAllByPropertyIdAsync(int propertyId)
+		public static async Task<BuyerOfferReadOnlyList> GetAllByUserIdAsync(string userId)
 		{
-			return await DataPortal.FetchAsync<OfferReadOnlyList>(propertyId);
+			return await DataPortal.FetchAsync<BuyerOfferReadOnlyList>(userId);
 		}
 
 		#endregion
 
 		#region Data Access
 
-
 		[RunLocal]
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode",
 			Justification = "This method is called indirectly by the CSLA.NET DataPortal.")]
-		private async Task DataPortal_Fetch(int propertyId)
+		private async Task DataPortal_Fetch(string userId)
 		{
-			var dal = ServiceFactory.Instance.GetService<IOfferReadOnlyDAL>();
-			var dto = await dal.GetAllByPropertyIdAsync(propertyId);
+			var dal = ServiceFactory.Instance.GetService<IBuyerOfferReadOnlyDAL>();
+			var dto = await dal.GetAllByUserIdAsync(userId);
 
 			FetchData(dto);
 		}
@@ -40,7 +39,7 @@ namespace OrangeBricks.Library.Models.Offers
 
 		#region Methods
 
-		private void FetchData(IEnumerable<OfferReadOnlyDTO> dtos)
+		private void FetchData(IEnumerable<BuyerOfferReadOnlyDTO> dtos)
 		{
 			if (dtos == null)
 				return;
@@ -49,7 +48,7 @@ namespace OrangeBricks.Library.Models.Offers
 
 			foreach (var dto in dtos)
 			{
-				Add(DataPortal.FetchChild<OfferReadOnly>(dto));
+				Add(DataPortal.FetchChild<BuyerOfferReadOnly>(dto));
 			}
 
 			this.IsReadOnly = true;

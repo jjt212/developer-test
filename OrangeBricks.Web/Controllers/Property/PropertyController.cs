@@ -104,7 +104,7 @@ namespace OrangeBricks.Web.Controllers.Property
 		[OrangeBricksAuthorize(Roles = "Buyer")]
 		public async Task<ActionResult> MakeOffer(MakeOfferDTO dto)
 		{
-			var cmd = await MakeOfferCommand.ExecuteAsync(dto.PropertyId, dto.Offer);
+			var cmd = await MakeOfferCommand.ExecuteAsync(dto.PropertyId, dto.Offer, User.Identity.GetUserId());
 
 			return RedirectToAction(nameof(PropertyController.Index));
 		}

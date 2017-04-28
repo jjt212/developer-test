@@ -84,9 +84,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Offers\AcceptOfferCommand.cs" />
+    <Compile Include="Models\Offers\BuyerOfferReadOnly.cs" />
+    <Compile Include="Models\Offers\BuyerOfferReadOnlyList.cs" />
     <Compile Include="Models\Offers\MakeOfferCommand.cs" />
-    <Compile Include="Models\Offers\OfferReadOnly.cs" />
-    <Compile Include="Models\Offers\OfferReadOnlyList.cs" />
+    <Compile Include="Models\Offers\SellerOfferReadOnly.cs" />
+    <Compile Include="Models\Offers\SellerOfferReadOnlyList.cs" />
     <Compile Include="Models\Offers\RejectOfferCommand.cs" />
     <Compile Include="Models\Properties\ListPropertyCommand.cs" />
     <Compile Include="Models\Properties\Property.cs" />

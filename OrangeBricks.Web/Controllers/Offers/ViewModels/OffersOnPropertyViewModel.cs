@@ -6,6 +6,6 @@ namespace OrangeBricks.Web.Controllers.Offers.ViewModels
 	public class OffersOnPropertyViewModel
 	{
 		public PropertyReadOnly Property { get; set; }
-		public OfferReadOnlyList Offers { get; set; }
+		public SellerOfferReadOnlyList Offers { get; set; }
 	}
 }

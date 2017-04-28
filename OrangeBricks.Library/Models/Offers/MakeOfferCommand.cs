@@ -25,17 +25,25 @@ namespace OrangeBricks.Library.Models.Offers
 		}
 		public static readonly PropertyInfo<int> OfferProperty = RegisterProperty<int>(c => c.Offer);
 
+		public string BuyerUserId
+		{
+			get { return ReadProperty(BuyerUserIdProperty); }
+			private set { LoadProperty(BuyerUserIdProperty, value); }
+		}
+		public static readonly PropertyInfo<string> BuyerUserIdProperty = RegisterProperty<string>(c => c.BuyerUserId);
+
 		#endregion
 
 		#region Execution
 
-		public static async Task<MakeOfferCommand> ExecuteAsync(int propertyId, int offer)
+		public static async Task<MakeOfferCommand> ExecuteAsync(int propertyId, int offer, string buyerUserId)
 		{
 			var cmd =
 				new MakeOfferCommand
 				{
 					PropertyId = propertyId,
 					Offer = offer,
+					BuyerUserId = buyerUserId,
 				};
 
 			return await DataPortal.ExecuteAsync(cmd);
@@ -48,7 +56,7 @@ namespace OrangeBricks.Library.Models.Offers
 		protected new async Task DataPortal_Execute()
 		{
 			var dal = ServiceFactory.Instance.GetService<IOfferDAL>();
-			await dal.MakeOfferAsync(this.PropertyId, this.Offer);
+			await dal.MakeOfferAsync(this.PropertyId, this.Offer, this.BuyerUserId);
 		}
 
 		#endregion

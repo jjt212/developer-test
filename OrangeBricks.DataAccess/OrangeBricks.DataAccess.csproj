@@ -59,9 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="DALs\BuyerOfferReadOnlyDAL.cs" />
     <Compile Include="DALs\EntityFrameworkDALBase.cs" />
     <Compile Include="DALs\OfferDAL.cs" />
-    <Compile Include="DALs\OfferReadOnlyDAL.cs" />
+    <Compile Include="DALs\SellerOfferReadOnlyDAL.cs" />
     <Compile Include="DALs\PropertyDAL.cs" />
     <Compile Include="DALs\PropertyReadOnlyDAL.cs" />
     <Compile Include="IOrangeBricksContext.cs" />

@@ -26,7 +26,7 @@ namespace OrangeBricks.DataAccess.DALs
 			await _context.SaveChangesAsync();
 		}
 
-		public async Task MakeOfferAsync(int propertyId, int offerAmount)
+		public async Task MakeOfferAsync(int propertyId, int offerAmount, string buyerUserId)
 		{
 			var property = _context.Properties.Find(propertyId);
 
@@ -35,7 +35,8 @@ namespace OrangeBricks.DataAccess.DALs
 				Amount = offerAmount,
 				Status = OfferStatus.Pending,
 				CreatedAt = DateTime.Now,
-				UpdatedAt = DateTime.Now
+				UpdatedAt = DateTime.Now,
+				BuyerUserId = buyerUserId,
 			};
 
 			if (property.Offers == null)

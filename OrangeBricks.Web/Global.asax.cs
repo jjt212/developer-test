@@ -36,7 +36,8 @@ namespace OrangeBricks.Web
 			container.RegisterType<ApplicationUserManager>(new InjectionFactory(context => HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>()));
 
 			container.RegisterType<IOfferDAL, OfferDAL>(new HierarchicalLifetimeManager());
-			container.RegisterType<IOfferReadOnlyDAL, OfferReadOnlyDAL>(new HierarchicalLifetimeManager());
+			container.RegisterType<ISellerOfferReadOnlyDAL, SellerOfferReadOnlyDAL>(new HierarchicalLifetimeManager());
+			container.RegisterType<IBuyerOfferReadOnlyDAL, BuyerOfferReadOnlyDAL>(new HierarchicalLifetimeManager());
 			container.RegisterType<IPropertyDAL, PropertyDAL>(new HierarchicalLifetimeManager());
 			container.RegisterType<IPropertyReadOnlyDAL, PropertyReadOnlyDAL>(new HierarchicalLifetimeManager());
 

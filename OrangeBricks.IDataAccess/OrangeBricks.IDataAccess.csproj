@@ -75,9 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmbientSingleton.cs" />
+    <Compile Include="DALs\IBuyerOfferReadOnlyDAL.cs" />
+    <Compile Include="DTOs\Offers\BuyerOfferReadOnlyDTO.cs" />
     <Compile Include="ServiceFactory.cs" />
-    <Compile Include="DALs\IOfferReadOnlyDAL.cs" />
-    <Compile Include="DTOs\Offers\OfferReadOnlyDTO.cs" />
+    <Compile Include="DALs\ISellerOfferReadOnlyDAL.cs" />
+    <Compile Include="DTOs\Offers\SellerOfferReadOnlyDTO.cs" />
     <Compile Include="DTOs\Properties\PropertyDTO.cs" />
     <Compile Include="DTOs\Properties\PropertyReadOnlyDTO.cs" />
     <Compile Include="DALs\IOfferDAL.cs" />

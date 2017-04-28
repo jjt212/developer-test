@@ -2,7 +2,7 @@
 
 namespace OrangeBricks.IDataAccess.DTOs.Offers
 {
-	public class OfferReadOnlyDTO
+	public class SellerOfferReadOnlyDTO
 	{
 		public int Id;
 		public int Amount { get; set; }
