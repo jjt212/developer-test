@@ -40,6 +40,8 @@ namespace OrangeBricks.Web
 			container.RegisterType<IBuyerOfferReadOnlyDAL, BuyerOfferReadOnlyDAL>(new HierarchicalLifetimeManager());
 			container.RegisterType<IPropertyDAL, PropertyDAL>(new HierarchicalLifetimeManager());
 			container.RegisterType<IPropertyReadOnlyDAL, PropertyReadOnlyDAL>(new HierarchicalLifetimeManager());
+			container.RegisterType<IAppointmentDAL, AppointmentDAL>(new HierarchicalLifetimeManager());
+			container.RegisterType<IAppointmentReadOnlyDAL, AppointmentReadOnlyDAL>(new HierarchicalLifetimeManager());
 
 			ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(container));
 			ServiceFactory.SetDefault(new ServiceFactory(container));

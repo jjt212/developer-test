@@ -26,5 +26,6 @@ namespace OrangeBricks.DataAccess.Models
 		public bool IsListedForSale { get; set; }
 
 		public ICollection<Offer> Offers { get; set; }
+		public ICollection<Appointment> Appointments { get; set; }
 	}
 }

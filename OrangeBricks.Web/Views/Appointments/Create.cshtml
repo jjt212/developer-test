@@ -1,0 +1,69 @@
+﻿@model OrangeBricks.Web.Controllers.Appointments.ViewModels.CreateAppointmentViewModel
+@{
+	ViewBag.Title = "Request A Viewing";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Request A Viewing</h2>
+
+<p>Request a viewing for the following property:</p>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+		<h3>@Model.Property.StreetName</h3>
+		<p>@Model.Property.NumberOfBedrooms bedroom @Model.Property.PropertyType</p>
+		<p>@Model.Property.Description</p>
+	</div>
+</div>
+
+@using (Html.BeginForm("Create", "Appointments", new { propertyId = Model.Property.PropertyId }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+	@Html.AntiForgeryToken()
+	<hr />
+	@Html.ValidationSummary("", new { @class = "text-danger" })
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.Appointment.Name, "Full name", new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.Appointment.Name, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.Appointment.PhoneNumber, "Phone Number", new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.Appointment.PhoneNumber, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.Appointment.EmailAddress, "Email Address", new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(m => m.Appointment.EmailAddress, new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.Appointment.RequestedFor, "Desired Date & Time", new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			<input type="datetime-local"
+				   id="@Html.IdFor(m => m.Appointment.RequestedFor)"
+				   name="@Html.NameFor(m => m.Appointment.RequestedFor)"
+				   value="@Model.Appointment.RequestedFor.ToString("yyyy-MM-ddThh:mm")"
+				   class="form-control" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.Appointment.Comments, "Comments", new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.TextAreaFor(m => m.Appointment.Comments, new { @class = "form-control", rows = 6 })
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" class="btn btn-default" value="Request viewing" />
+		</div>
+	</div>
+}

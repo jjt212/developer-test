@@ -19,6 +19,7 @@ namespace OrangeBricks.DataAccess
 
 		public IDbSet<Property> Properties { get; set; }
 		public IDbSet<Offer> Offers { get; set; }
+		public IDbSet<Appointment> Appointments { get; set; }
 
 		public new void SaveChanges()
 		{

@@ -8,6 +8,7 @@ namespace OrangeBricks.DataAccess
 	{
 		IDbSet<Property> Properties { get; set; }
 		IDbSet<Offer> Offers { get; set; }
+		IDbSet<Appointment> Appointments { get; set; }
 
 		void SaveChanges();
 		Task SaveChangesAsync();

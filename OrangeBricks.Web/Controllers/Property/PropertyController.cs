@@ -52,10 +52,10 @@ namespace OrangeBricks.Web.Controllers.Property
 		public async Task<ActionResult> Create(CreatePropertyDTO dto)
 		{
 			var prop = Library.Models.Properties.Property.Create(User.Identity.GetUserId());
-			prop.PropertyType = dto.PropertyType;
-			prop.StreetName = dto.StreetName;
-			prop.Description = dto.Description;
-			prop.NumberOfBedrooms = dto.NumberOfBedrooms;
+			prop.PropertyType = dto.Property.PropertyType;
+			prop.StreetName = dto.Property.StreetName;
+			prop.Description = dto.Property.Description;
+			prop.NumberOfBedrooms = dto.Property.NumberOfBedrooms;
 
 			prop = await prop.SaveAsync();
 

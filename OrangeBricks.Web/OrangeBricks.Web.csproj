@@ -208,6 +208,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\OrangeBricksAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Appointments\AppointmentsController.cs" />
+    <Compile Include="Controllers\Appointments\ViewModels\CreateAppointmentViewModel.cs" />
+    <Compile Include="Controllers\Appointments\ViewModels\ReceivedAppointmentsViewModel.cs" />
+    <Compile Include="Controllers\Appointments\ViewModels\SentAppointmentsViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Offers\OffersController.cs" />
     <Compile Include="Controllers\Offers\ViewModels\MyOffersViewModel.cs" />
@@ -218,6 +222,7 @@
     <Compile Include="Controllers\Property\ViewModels\MyPropertiesViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\PropertiesViewModel.cs" />
     <Compile Include="DTOs\AcceptOfferDTO.cs" />
+    <Compile Include="DTOs\CreateAppointmentDTO.cs" />
     <Compile Include="DTOs\CreatePropertyDTO.cs" />
     <Compile Include="DTOs\ListPropertyDTO.cs" />
     <Compile Include="DTOs\MakeOfferDTO.cs" />
@@ -259,6 +264,10 @@
     <Compile Include="Migrations\201704281656163_AddOfferBuyerUserId.cs" />
     <Compile Include="Migrations\201704281656163_AddOfferBuyerUserId.Designer.cs">
       <DependentUpon>201704281656163_AddOfferBuyerUserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704282009203_Appointments.cs" />
+    <Compile Include="Migrations\201704282009203_Appointments.Designer.cs">
+      <DependentUpon>201704282009203_Appointments.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -339,6 +348,9 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Views\Account\UnAuthorized.cshtml" />
     <Content Include="Views\Offers\MyOffers.cshtml" />
+    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\Sent.cshtml" />
+    <Content Include="Views\Appointments\Received.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704281656163_AddOfferBuyerUserId.resx">
       <DependentUpon>201704281656163_AddOfferBuyerUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704282009203_Appointments.resx">
+      <DependentUpon>201704282009203_Appointments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

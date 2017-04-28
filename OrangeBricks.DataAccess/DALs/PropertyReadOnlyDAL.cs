@@ -34,20 +34,11 @@ namespace OrangeBricks.DataAccess.DALs
 
 		public async Task<IEnumerable<PropertyReadOnlyDTO>> GetAllBySellerUserIdAsync(string sellerUserId)
 		{
-
-			return await _context.Properties
+			var properties = await _context.Properties
 				.Where(p => p.SellerUserId == sellerUserId)
-				.Select(p =>
-					new PropertyReadOnlyDTO
-					{
-						PropertyId = p.Id,
-						StreetName = p.StreetName,
-						Description = p.Description,
-						NumberOfBedrooms = p.NumberOfBedrooms,
-						PropertyType = p.PropertyType,
-						IsListedForSale = p.IsListedForSale,
-					})
 				.ToListAsync();
+
+			return properties.Select(p => ToDTO(p));
 		}
 
 		public async Task<PropertyReadOnlyDTO> GetByIdAsync(int propertyId)
@@ -57,14 +48,7 @@ namespace OrangeBricks.DataAccess.DALs
 				.Include(p => p.Offers)
 				.SingleOrDefaultAsync();
 
-			return new PropertyReadOnlyDTO
-			{
-				HasOffers = (property.Offers?.Count() ?? 0) > 0,
-				PropertyId = property.Id,
-				PropertyType = property.PropertyType,
-				StreetName = property.StreetName,
-				NumberOfBedrooms = property.NumberOfBedrooms
-			};
+			return ToDTO(property);
 		}
 
 		#endregion

@@ -75,7 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmbientSingleton.cs" />
+    <Compile Include="DALs\IAppointmentDAL.cs" />
+    <Compile Include="DALs\IAppointmentReadOnlyDAL.cs" />
     <Compile Include="DALs\IBuyerOfferReadOnlyDAL.cs" />
+    <Compile Include="DTOs\Appointments\AppointmentDTO.cs" />
+    <Compile Include="DTOs\Appointments\AppointmentReadOnlyDTO.cs" />
     <Compile Include="DTOs\Offers\BuyerOfferReadOnlyDTO.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="DALs\ISellerOfferReadOnlyDAL.cs" />

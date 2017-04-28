@@ -83,6 +83,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Appointments\Appointment.cs" />
+    <Compile Include="Models\Appointments\AppointmentReadOnly.cs" />
+    <Compile Include="Models\Appointments\AppointmentReadOnlyList.cs" />
     <Compile Include="Models\Offers\AcceptOfferCommand.cs" />
     <Compile Include="Models\Offers\BuyerOfferReadOnly.cs" />
     <Compile Include="Models\Offers\BuyerOfferReadOnlyList.cs" />

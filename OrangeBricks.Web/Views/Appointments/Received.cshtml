@@ -1,0 +1,49 @@
+﻿@model OrangeBricks.Web.Controllers.Appointments.ViewModels.ReceivedAppointmentsViewModel
+@{
+	ViewBag.Title = "Appointments";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Incoming Appointment Requests</h2>
+
+@if (Model.HasSentAppointments)
+{
+	<p>You have received @Model.Appointments.Count requests for viewing appointments..</p>
+
+	foreach (var appt in Model.Appointments)
+	{
+		<hr />
+
+		<div class="row">
+
+			<div class="col-sm-3">
+				<h3>Appointment:</h3>
+				<dl>
+					<dt>Name</dt>
+					<dd>@appt.Name</dd>
+					<dt>Phone Number</dt>
+					<dd>@appt.PhoneNumber</dd>
+					<dt>Email Address</dt>
+					<dd>@appt.EmailAddress</dd>
+					<dt>Requested Date &amp; Time</dt>
+					<dd>@appt.RequestedFor.ToShortDateString() @appt.RequestedFor.ToShortTimeString()</dd>
+					<dt>Comments</dt>
+					<dd>@appt.Comments</dd>
+				</dl>
+			</div>
+
+			<div class="col-sm-9">
+				<h3>@appt.Property.StreetName</h3>
+				<p>@appt.Property.NumberOfBedrooms bedroom @appt.Property.PropertyType</p>
+				<p>@appt.Property.Description</p>
+			</div>
+		</div>
+
+	}
+}
+else
+{
+	<div class="alert alert-info">
+		You have not yet received any viewing appointment requests.
+	</div>
+}

@@ -14,9 +14,9 @@
         <div class="col-sm-8">
             @Html.TextBoxFor(m => m.Search, new { @class = "form-control", @placeholder = "Search by street or description..." })
         </div>
-    <div class="col-sm-2">
-        <button type="submit" class="btn btn-default">Search</button>
-    </div>
+		<div class="col-sm-2">
+			<button type="submit" class="btn btn-default">Search</button>
+		</div>
     </div>
     
 }
@@ -30,7 +30,13 @@
     <p>@property.NumberOfBedrooms bedroom @property.PropertyType</p>
     <p>@property.Description</p>
 
-    <a href="@Url.Action("MakeOffer", "Property", new {id = property.PropertyId})" class="btn btn-primary">
+	if (User.IsInRole("Buyer"))
+	{
+    <a href="@Url.Action("MakeOffer", "Property", new { id = property.PropertyId })" class="btn btn-primary">
         Make Offer
     </a>
+	<a href="@Url.Action("Create", "Appointments", new { propertyId = property.PropertyId })" class="btn btn-primary">
+		Request Viewing
+	</a>
+	}
 }
